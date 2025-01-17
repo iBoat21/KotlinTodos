@@ -1,5 +1,6 @@
 package it.example.todos.entities
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
@@ -17,6 +18,7 @@ class TodoItem(
     var isComplete: Boolean = false,
     @ManyToOne
     @JoinColumn(name = "todo_id")
+    @JsonIgnore
     var todo: Todo? = null
 ) {
     override fun toString(): String {
